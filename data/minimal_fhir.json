@@ -1,0 +1,42 @@
+{
+  "entries": [
+    {
+      "name": "SampleDataset",
+      "meta": {
+        "versionId": "1.0"
+      },
+      "featureSet": {
+        "features": [
+          {
+            "name": "Age",
+            "description": "Age of the patient",
+            "dataType": "NUMERIC",
+            "statistics": {
+              "numOfNotNull": 100,
+              "min": 18,
+              "max": 95
+            }
+          },
+          {
+            "name": "IsSmoker",
+            "description": "Whether the patient is a smoker",
+            "dataType": "BOOLEAN",
+            "statistics": {
+              "numOfNotNull": 0
+            }
+          }
+        ],
+        "outcomes": [
+          {
+            "name": "OutcomeHeartDisease",
+            "description": "Whether the patient developed heart disease",
+            "dataType": "BOOLEAN",
+            "statistics": {
+              "numOfNotNull": 90
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

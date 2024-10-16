@@ -18,12 +18,12 @@ This repository provides a tool to convert FHIR data into MIP schema data models
 
 2. Run the conversion script:
     ```bash
-    poetry run python converter/converter.py --input_file <input_path> --output_file <output_path> --rejected_file <rejected_file_path>
+    poetry run python converter/fhir2mip.py <input_path> <output_path> <rejected_file_path>
     ```
 
     Example:
     ```bash
-    poetry run python converter/converter.py --input_file original_data.json --output_file transformed_data.json --rejected_file rejected_codes.txt
+    poetry run python converter/fhir2mip.py data/minimal_fhir.json  transformed_data.json rejected_codes.txt
     ```
 
 ## Testing

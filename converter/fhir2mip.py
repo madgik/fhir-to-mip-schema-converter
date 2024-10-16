@@ -183,17 +183,21 @@ def export_to_json(transformed_data, filename="transformed_data.json"):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Transform FHIR data to MIP schema.")
-    parser.add_argument("input_file", type=str, help="Path to the input JSON file")
-    parser.add_argument("output_file", type=str, help="Path to the output JSON file")
-    parser.add_argument("rejected_file", type=str, help="Path to save rejected feature codes")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input_file", help="The input JSON file to transform")
+    parser.add_argument("output_file", help="The output JSON file to save the transformed data")
+    parser.add_argument("rejected_file", help="The file to save rejected feature codes")
 
     args = parser.parse_args()
 
-    # Transform the data
-    transformed_data = transform_data(args.input_file, args.rejected_file)
+    # Read the JSON input file
+    with open(args.input_file, 'r') as f:
+        original_data = json.load(f)
 
-    # Export the transformed data to output JSON file
+    # Transform the data
+    transformed_data = transform_data(original_data, args.rejected_file)
+
+    # Export the transformed data to the output file
     export_to_json(transformed_data, args.output_file)
 
 if __name__ == "__main__":
